@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codeforge-agent"
+version = "0.2.0"
+description = "A traceable coding-task agent with project profiling and local verification"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "anthropic>=0.40.0",
+    "openai>=1.50.0",
+    "rich>=13.0.0",
+]
+
+[project.scripts]
+codeforge = "codeforge_agent.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["codeforge_agent*"]
+
+[tool.setuptools.package-data]
+codeforge_agent = ["system_prompt.md"]
